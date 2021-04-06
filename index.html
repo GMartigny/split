@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Split</title>
+</head>
+<body>
+<form id="connect">
+    <label for="chan">Join or create a channel</label>
+    <input type="text" id="chan" name="chan">
+    <button type="submit">Go !</button>
+</form>
+<script>
+    document.getElementById("connect").addEventListener("submit", (event) => {
+        event.preventDefault();
+        location.href = `/${event.target.chan.value}`;
+    });
+</script>
+</body>
+</html>
