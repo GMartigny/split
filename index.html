@@ -3,17 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Split</title>
+    <link rel="stylesheet" href="./res/style.css" type="text/css">
 </head>
 <body>
-<form id="connect">
-    <label for="chan">Join or create a channel</label>
-    <input type="text" id="chan" name="chan">
-    <button type="submit">Go !</button>
-</form>
+<main id="main">
+    <form id="connect">
+        <label for="chan">Join or create a channel</label>
+        <input type="text" id="chan" name="chan">
+        <button type="submit">Go !</button>
+    </form>
+</main>
 <script>
     document.getElementById("connect").addEventListener("submit", (event) => {
         event.preventDefault();
         location.href = `/${event.target.chan.value}`;
+    });
+    const main = document.getElementById("main");
+    main.addEventListener("dragenter", () => main.classList.add("drag"));
+    main.addEventListener("dragleave", () => main.classList.remove("drag"));
+    main.addEventListener("dragover", event => event.preventDefault());
+    main.addEventListener("drop", (event) => {
+        event.preventDefault();
+
+        const [file] = event.dataTransfer.files;
+
+        if (file) {
+            const reader = new FileReader();
+            reader.readAsText(file);
+            reader.onloadend = () => {
+                console.log(reader.result);
+            }
+        }
+
+        main.classList.remove("drag");
     });
 </script>
 </body>

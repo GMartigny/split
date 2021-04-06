@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    padding: 20px;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+#main {
+    position: relative;
+    padding: 20px;
+    height: 100%;
+    box-sizing: border-box;
+    border: 4px solid transparent;
+}
+
+#main.drag {
+    border: 4px dashed #09487c;
+    border-radius: 10px;
+    background-color: #6fabe3;
+}
+
+#main.drag:after {
+    content: "Drop here";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    text-shadow: 0 0 10px #000;
+}
+
+#connect input {
+    border: none;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #111;
+    outline: none;
+    padding: .5em 1em;
+}
